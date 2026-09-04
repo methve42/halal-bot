@@ -1,1 +1,472 @@
-[]
+[
+  {
+    "ticker": "ABBV",
+    "name": "AbbVie Inc.",
+    "sector": "Healthcare",
+    "price": 220.68,
+    "target": 238.0,
+    "growth": 290.4,
+    "debt_ratio": 15.6,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "ADI",
+    "name": "Analog Devices, Inc.",
+    "sector": "Technology",
+    "price": 311.72,
+    "target": 404.65,
+    "growth": 163.5,
+    "debt_ratio": 5.2,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "ADM",
+    "name": "Archer-Daniels-Midland Company",
+    "sector": "Consumer Defensive",
+    "price": 72.81,
+    "target": 67.72,
+    "growth": 315.6,
+    "debt_ratio": 22.9,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "AMD",
+    "name": "Advanced Micro Devices, Inc.",
+    "sector": "Technology",
+    "price": 410.95,
+    "target": 528.21,
+    "growth": 159.5,
+    "debt_ratio": 0.5,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "AMZN",
+    "name": "Amazon.com, Inc.",
+    "sector": "Consumer Cyclical",
+    "price": 222.45,
+    "target": 282.25,
+    "growth": 242.3,
+    "debt_ratio": 9.0,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "AVGO",
+    "name": "Broadcom Inc.",
+    "sector": "Technology",
+    "price": 307.97,
+    "target": 452.6,
+    "growth": 215.3,
+    "debt_ratio": 3.5,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "BKNG",
+    "name": "Booking Holdings Inc. Common St",
+    "sector": "Consumer Cyclical",
+    "price": 166.33,
+    "target": 205.38,
+    "growth": 130.0,
+    "debt_ratio": 14.4,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "CDNS",
+    "name": "Cadence Design Systems, Inc.",
+    "sector": "Technology",
+    "price": 251.87,
+    "target": 346.89,
+    "growth": 125.4,
+    "debt_ratio": 3.3,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "CIEN",
+    "name": "Ciena Corporation",
+    "sector": "Technology",
+    "price": 276.22,
+    "target": 474.88,
+    "growth": 2383.3,
+    "debt_ratio": 3.5,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "COP",
+    "name": "ConocoPhillips",
+    "sector": "Energy",
+    "price": 115.53,
+    "target": 125.06,
+    "growth": 107.0,
+    "debt_ratio": 14.4,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "CRM",
+    "name": "Salesforce, Inc.",
+    "sector": "Technology",
+    "price": 223.07,
+    "target": 231.89,
+    "growth": 118.9,
+    "debt_ratio": 19.9,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "CSGP",
+    "name": "CoStar Group, Inc.",
+    "sector": "Real Estate",
+    "price": 26.6,
+    "target": 32.1,
+    "growth": 1261.0,
+    "debt_ratio": 9.2,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "CVX",
+    "name": "Chevron Corporation",
+    "sector": "Energy",
+    "price": 179.5,
+    "target": 190.35,
+    "growth": 321.9,
+    "debt_ratio": 9.1,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "DD",
+    "name": "DuPont de Nemours, Inc.",
+    "sector": "Basic Materials",
+    "price": 113.23,
+    "target": 146.28,
+    "growth": 149.6,
+    "debt_ratio": 17.9,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "DDOG",
+    "name": "Datadog, Inc.",
+    "sector": "Technology",
+    "price": 183.23,
+    "target": 245.4,
+    "growth": 1498.5,
+    "debt_ratio": 1.7,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "DELL",
+    "name": "Dell Technologies Inc.",
+    "sector": "Technology",
+    "price": 451.02,
+    "target": 485.72,
+    "growth": 272.9,
+    "debt_ratio": 10.2,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "EOG",
+    "name": "EOG Resources, Inc.",
+    "sector": "Energy",
+    "price": 124.94,
+    "target": 137.65,
+    "growth": 109.4,
+    "debt_ratio": 10.8,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "EXPE",
+    "name": "Expedia Group, Inc.",
+    "sector": "Consumer Cyclical",
+    "price": 256.46,
+    "target": 292.4,
+    "growth": 188.7,
+    "debt_ratio": 15.9,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "FANG",
+    "name": "Diamondback Energy, Inc.",
+    "sector": "Energy",
+    "price": 171.43,
+    "target": 200.1,
+    "growth": 179.5,
+    "debt_ratio": 22.6,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "GOOG",
+    "name": "Alphabet Inc.",
+    "sector": "Communication Services",
+    "price": 288.53,
+    "target": 363.42,
+    "growth": 294.0,
+    "debt_ratio": 2.9,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "GOOGL",
+    "name": "Alphabet Inc.",
+    "sector": "Communication Services",
+    "price": 291.24,
+    "target": 368.35,
+    "growth": 294.0,
+    "debt_ratio": 2.9,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "HPE",
+    "name": "Hewlett Packard Enterprise Comp",
+    "sector": "Technology",
+    "price": 44.75,
+    "target": 58.07,
+    "growth": 410.2,
+    "debt_ratio": 29.3,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "HSY",
+    "name": "The Hershey Company",
+    "sector": "Consumer Defensive",
+    "price": 149.0,
+    "target": 176.85,
+    "growth": 631.0,
+    "debt_ratio": 17.0,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "KEYS",
+    "name": "Keysight Technologies Inc.",
+    "sector": "Technology",
+    "price": 281.56,
+    "target": 357.18,
+    "growth": 109.1,
+    "debt_ratio": 5.0,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "LITE",
+    "name": "Lumentum Holdings Inc.",
+    "sector": "Technology",
+    "price": 758.32,
+    "target": 988.23,
+    "growth": 109.3,
+    "debt_ratio": 2.1,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "LYV",
+    "name": "Live Nation Entertainment, Inc.",
+    "sector": "Communication Services",
+    "price": 149.3,
+    "target": 173.79,
+    "growth": 156.2,
+    "debt_ratio": 27.9,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "MDLZ",
+    "name": "Mondelez International, Inc.",
+    "sector": "Consumer Defensive",
+    "price": 52.73,
+    "target": 59.49,
+    "growth": 144.9,
+    "debt_ratio": 28.2,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "MU",
+    "name": "Micron Technology, Inc.",
+    "sector": "Technology",
+    "price": 874.78,
+    "target": 1302.03,
+    "growth": 1368.5,
+    "debt_ratio": 0.6,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "NKE",
+    "name": "Nike, Inc.",
+    "sector": "Consumer Cyclical",
+    "price": 33.04,
+    "target": 43.42,
+    "growth": 428.0,
+    "debt_ratio": 19.4,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "NVDA",
+    "name": "NVIDIA Corporation",
+    "sector": "Technology",
+    "price": 198.22,
+    "target": 281.49,
+    "growth": 127.8,
+    "debt_ratio": 0.7,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "OXY",
+    "name": "Occidental Petroleum Corporatio",
+    "sector": "Energy",
+    "price": 51.66,
+    "target": 57.5,
+    "growth": 964.9,
+    "debt_ratio": 24.4,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "PEP",
+    "name": "Pepsico, Inc.",
+    "sector": "Consumer Defensive",
+    "price": 118.43,
+    "target": 133.38,
+    "growth": 137.0,
+    "debt_ratio": 28.3,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "PLTR",
+    "name": "Palantir Technologies Inc.",
+    "sector": "Technology",
+    "price": 150.01,
+    "target": 164.94,
+    "growth": 215.4,
+    "debt_ratio": 0.1,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "PODD",
+    "name": "Insulet Corporation",
+    "sector": "Healthcare",
+    "price": 126.91,
+    "target": 147.93,
+    "growth": 328.6,
+    "debt_ratio": 9.3,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "PSX",
+    "name": "Phillips 66",
+    "sector": "Energy",
+    "price": 219.5,
+    "target": 195.38,
+    "growth": 344.9,
+    "debt_ratio": 20.1,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "RDDT",
+    "name": "Reddit, Inc.",
+    "sector": "Communication Services",
+    "price": 132.91,
+    "target": 183.38,
+    "growth": 177.8,
+    "debt_ratio": 0.1,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "ROP",
+    "name": "Roper Technologies, Inc.",
+    "sector": "Technology",
+    "price": 350.46,
+    "target": 383.09,
+    "growth": 233.0,
+    "debt_ratio": 28.1,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "SNDK",
+    "name": "Sandisk Corporation",
+    "sector": "Technology",
+    "price": 1497.27,
+    "target": 1828.64,
+    "growth": 371.6,
+    "debt_ratio": 0.1,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "STX",
+    "name": "Seagate Technology Holdings PLC",
+    "sector": "Technology",
+    "price": 730.81,
+    "target": 968.06,
+    "growth": 148.8,
+    "debt_ratio": 2.0,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "TER",
+    "name": "Teradyne, Inc.",
+    "sector": "Technology",
+    "price": 307.22,
+    "target": 384.18,
+    "growth": 385.8,
+    "debt_ratio": 0.2,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "TGT",
+    "name": "Target Corporation",
+    "sector": "Consumer Defensive",
+    "price": 141.5,
+    "target": 139.33,
+    "growth": 100.5,
+    "debt_ratio": 25.7,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "VLO",
+    "name": "Valero Energy Corporation",
+    "sector": "Energy",
+    "price": 319.0,
+    "target": 275.04,
+    "growth": 453.5,
+    "debt_ratio": 10.6,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "WAT",
+    "name": "Waters Corporation",
+    "sector": "Healthcare",
+    "price": 352.27,
+    "target": 378.36,
+    "growth": 113.4,
+    "debt_ratio": 13.6,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "WDAY",
+    "name": "Workday, Inc.",
+    "sector": "Technology",
+    "price": 168.48,
+    "target": 178.21,
+    "growth": 206.0,
+    "debt_ratio": 8.0,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "WDC",
+    "name": "Western Digital Corporation",
+    "sector": "Technology",
+    "price": 402.25,
+    "target": 572.16,
+    "growth": 984.1,
+    "debt_ratio": 0.7,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "XOM",
+    "name": "ExxonMobil Holdings Corporation",
+    "sector": "Energy",
+    "price": 137.22,
+    "target": 146.01,
+    "growth": 112.8,
+    "debt_ratio": 6.5,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "ZBRA",
+    "name": "Zebra Technologies Corporation",
+    "sector": "Technology",
+    "price": 312.14,
+    "target": 355.27,
+    "growth": 121.5,
+    "debt_ratio": 17.3,
+    "currency": "\u20ac"
+  }
+]
