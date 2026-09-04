@@ -46,12 +46,22 @@
                 LIVE_STOCKS = await res.json();
                 document.getElementById('status-text').innerText = `Aktiv • ${LIVE_STOCKS.length} High-Potential Aktien geladen`;
                 
-                appendBotMsg(`Assalamu Alaikum! Die aktuellen Marktdaten wurden geladen. Es wurden <strong>${LIVE_STOCKS.length} Aktien mit hohem Potenzial</strong> identifiziert.<br><br>Frage nach <i>'Kioxia'</i> oder tippe <i>'Alle Aktien'</i>.`);
+                // AUTOMATISCHE ANZEIGE ALLER AKTIEN BEIM LADEN
+                let html = `<b>Assalamu Alaikum!</b><br>Der Scanner hat heute automatisch <b>${LIVE_STOCKS.length} Halal-Aktien</b> mit hohem Potenzial identifiziert:<br><br>`;
+                
+                if (LIVE_STOCKS.length === 0) {
+                    html += "Aktuell entsprechen keine Aktien allen strikten Filtern.";
+                } else {
+                    LIVE_STOCKS.forEach(s => html += renderCard(s));
+                }
+                
+                appendBotMsg(html);
             } catch (err) {
                 document.getElementById('status-text').innerText = "Stand: Erstes Cloud-Update ausstehend";
                 appendBotMsg("⚠️ Die Live-Datenbank wird gerade von GitHub Actions aufgebaut.");
             }
         }
+
 
         function appendUserMsg(text) {
             const box = document.getElementById("chat-box");
