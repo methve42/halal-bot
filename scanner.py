@@ -53,7 +53,7 @@ print(f"Starte Analyse von {len(TICKERS_LIST)} Titeln (Fokus: Analysten-Kurspote
 results = []
 
 # MINDEST-KURSPOTENZIAL DER ANALYSTEN (0.15 = mindestens +15% erwarteter Anstieg)
-MIN_UPSIDE_THRESHOLD = 0.15
+MIN_UPSIDE_THRESHOLD = 0.50
 
 for symbol in TICKERS_LIST:
     try:
