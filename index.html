@@ -3,128 +3,256 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HalalInvest AI - Live Dashboard</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <title>HalalInvest AI • Automated Sharia Dashboard</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+            padding: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        header {
+            border-bottom: 1px solid #334155;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+        h1 {
+            font-size: 1.6rem;
+            color: #38bdf8;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .status-badge {
+            display: inline-block;
+            background-color: #1e293b;
+            color: #38bdf8;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-top: 10px;
+            border: 1px solid #334155;
+        }
+        .filter-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+            background: #1e293b;
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px solid #334155;
+        }
+        .filter-bar input, .filter-bar select {
+            background: #0f172a;
+            color: #f8fafc;
+            border: 1px solid #334155;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            outline: none;
+            flex: 1;
+            min-width: 140px;
+        }
+        .filter-bar input:focus, .filter-bar select:focus {
+            border-color: #38bdf8;
+        }
+        .stock-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .card {
+            background: #1e293b;
+            border: 1px solid #334155;
+            padding: 16px;
+            border-radius: 10px;
+            transition: transform 0.15s ease, border-color 0.15s ease;
+        }
+        .card:hover {
+            border-color: #38bdf8;
+        }
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .stock-title {
+            font-size: 1.15rem;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .stock-ticker {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            margin-left: 4px;
+        }
+        .badge-growth {
+            background: #064e3b;
+            color: #34d399;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 0.85rem;
+        }
+        .card-details {
+            font-size: 0.92rem;
+            color: #cbd5e1;
+            line-height: 1.6;
+            margin-bottom: 14px;
+        }
+        .btn-tr {
+            display: inline-block;
+            background: #2563eb;
+            color: #ffffff;
+            padding: 8px 14px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+        .btn-tr:hover {
+            background: #1d4ed8;
+        }
+        .no-results {
+            text-align: center;
+            padding: 40px;
+            color: #94a3b8;
+            background: #1e293b;
+            border-radius: 10px;
+            border: 1px solid #334155;
+        }
+    </style>
 </head>
-<body class="bg-slate-900 text-slate-100 font-sans min-h-screen flex flex-col items-center p-4">
+<body>
 
-    <header class="w-full max-w-3xl flex justify-between items-center py-4 border-b border-slate-800 mb-4">
-        <div class="flex items-center gap-3">
-            <div class="bg-emerald-500/20 text-emerald-400 p-2.5 rounded-xl border border-emerald-500/30">
-                <i class="fa-solid fa-chart-line text-xl"></i>
-            </div>
-            <div>
-                <h1 class="text-lg font-bold">HalalInvest <span class="text-emerald-400">Live AI</span></h1>
-                <p class="text-xs text-slate-400" id="status-text">Lade tagesaktuelle Marktdaten...</p>
-            </div>
-        </div>
-        <span class="bg-emerald-500/10 text-emerald-400 text-xs px-3 py-1 rounded-full border border-emerald-500/20">
-            ● Cloud Auto-Sync
-        </span>
+    <header>
+        <h1>🕌 HalalInvest Live AI</h1>
+        <div id="status-text" class="status-badge">Daten werden geladen...</div>
     </header>
 
-    <main class="w-full max-w-3xl bg-slate-800/50 border border-slate-700/50 rounded-2xl h-[70vh] flex flex-col overflow-hidden shadow-xl">
-        <div id="chat-box" class="flex-1 p-4 overflow-y-auto space-y-3"></div>
+    <div class="filter-bar">
+        <input type="text" id="search-input" placeholder="Aktie oder Ticker suchen..." oninput="applyFilters()">
+        <select id="sector-filter" onchange="applyFilters()">
+            <option value="ALL">Alle Sektoren</option>
+        </select>
+        <select id="sort-select" onchange="applyFilters()">
+            <option value="growth-desc">Höchstes Wachstum zuerst</option>
+            <option value="price-asc">Günstigster Preis zuerst</option>
+            <option value="debt-asc">Niedrigste Schulden zuerst</option>
+        </select>
+    </div>
 
-        <div class="p-3 border-t border-slate-700/50 bg-slate-900/80 flex gap-2">
-            <input type="text" id="user-input" placeholder="Frage eingeben (z.B. 'Kioxia', 'Alle Aktien')..." 
-                   class="flex-1 bg-slate-950 border border-slate-700 rounded-xl px-4 py-2.5 text-sm outline-none focus:border-emerald-500"
-                   onkeypress="if(event.key==='Enter') sendMessage()">
-            <button onclick="sendMessage()" class="bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold px-4 py-2.5 rounded-xl text-sm transition">
-                Senden
-            </button>
-        </div>
-    </main>
+    <div id="stock-list" class="stock-grid"></div>
 
     <script>
         let LIVE_STOCKS = [];
 
         async function loadDailyData() {
+            const statusEl = document.getElementById('status-text');
             try {
                 const res = await fetch('data.json?t=' + new Date().getTime());
                 LIVE_STOCKS = await res.json();
-                document.getElementById('status-text').innerText = `Aktiv • ${LIVE_STOCKS.length} High-Potential Aktien geladen`;
                 
-                // AUTOMATISCHE ANZEIGE ALLER AKTIEN BEIM LADEN
-                let html = `<b>Assalamu Alaikum!</b><br>Der Scanner hat heute automatisch <b>${LIVE_STOCKS.length} Halal-Aktien</b> mit hohem Potenzial identifiziert:<br><br>`;
+                statusEl.innerText = `Aktiv • ${LIVE_STOCKS.length} Halal-Aktien geladen`;
+                statusEl.style.color = '#34d399';
                 
-                if (LIVE_STOCKS.length === 0) {
-                    html += "Aktuell entsprechen keine Aktien allen strikten Filtern.";
-                } else {
-                    LIVE_STOCKS.forEach(s => html += renderCard(s));
-                }
-                
-                appendBotMsg(html);
+                populateSectors();
+                applyFilters();
             } catch (err) {
-                document.getElementById('status-text').innerText = "Stand: Erstes Cloud-Update ausstehend";
-                appendBotMsg("⚠️ Die Live-Datenbank wird gerade von GitHub Actions aufgebaut.");
+                statusEl.innerText = "Stand: Daten werden von GitHub Actions aufgebaut...";
+                statusEl.style.color = '#fbbf24';
+                document.getElementById('stock-list').innerHTML = `
+                    <div class="no-results">
+                        ⚠️ Die Live-Datenbank wird gerade aktualisiert oder ist noch nicht erreichbar.<br>
+                        Bitte überprüfe, ob der Scan auf GitHub erfolgreich durchgelaufen ist.
+                    </div>`;
             }
         }
 
+        function populateSectors() {
+            const sectorSelect = document.getElementById('sector-filter');
+            const sectors = new Set();
+            
+            LIVE_STOCKS.forEach(s => {
+                if (s.sector) sectors.add(s.sector);
+            });
 
-        function appendUserMsg(text) {
-            const box = document.getElementById("chat-box");
-            box.innerHTML += `<div class="flex justify-end"><div class="bg-emerald-500 text-slate-950 font-medium px-4 py-2.5 rounded-2xl rounded-tr-none text-sm max-w-[80%]">${text}</div></div>`;
-            box.scrollTop = box.scrollHeight;
+            sectors.forEach(sec => {
+                const option = document.createElement('option');
+                option.value = sec;
+                option.textContent = sec;
+                sectorSelect.appendChild(option);
+            });
         }
 
-        function appendBotMsg(html) {
-            const box = document.getElementById("chat-box");
-            box.innerHTML += `<div class="flex items-start gap-2.5">
-                <div class="w-7 h-7 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xs flex-shrink-0">🤖</div>
-                <div class="bg-slate-800 border border-slate-700 p-3.5 rounded-2xl rounded-tl-none text-sm text-slate-200 max-w-[85%]">${html}</div>
-            </div>`;
-            box.scrollTop = box.scrollHeight;
+        function applyFilters() {
+            const query = document.getElementById('search-input').value.toLowerCase().trim();
+            const selectedSector = document.getElementById('sector-filter').value;
+            const sortBy = document.getElementById('sort-select').value;
+
+            let filtered = LIVE_STOCKS.filter(s => {
+                const matchesSearch = s.name.toLowerCase().includes(query) || s.ticker.toLowerCase().includes(query);
+                const matchesSector = selectedSector === 'ALL' || s.sector === selectedSector;
+                return matchesSearch && matchesSector;
+            });
+
+            // Sortierung anwenden
+            if (sortBy === 'growth-desc') {
+                filtered.sort((a, b) => (b.growth || 0) - (a.growth || 0));
+            } else if (sortBy === 'price-asc') {
+                filtered.sort((a, b) => (a.price || 0) - (b.price || 0));
+            } else if (sortBy === 'debt-asc') {
+                filtered.sort((a, b) => (a.debt_ratio || 0) - (b.debt_ratio || 0));
+            }
+
+            renderCards(filtered);
         }
 
-        function sendMessage() {
-            const input = document.getElementById("user-input");
-            const q = input.value.trim();
-            if (!q) return;
+        function renderCards(stocks) {
+            const container = document.getElementById('stock-list');
+            if (!stocks || stocks.length === 0) {
+                container.innerHTML = `<div class="no-results">Keine passenden Halal-Aktien gefunden.</div>`;
+                return;
+            }
 
-            appendUserMsg(q);
-            input.value = "";
-
-            setTimeout(() => {
-                const text = q.toLowerCase();
-                if (text.includes("kioxia")) {
-                    const match = LIVE_STOCKS.find(s => s.name.toLowerCase().includes("kioxia") || s.ticker.includes("285A"));
-                    if (match) {
-                        appendBotMsg(`<b>💾 Kioxia Analyse (Live-Daten):</b><br>${match.desc}${renderCard(match)}`);
-                    } else {
-                        appendBotMsg("Kioxia ist aktuell in den heutigen Top-Filtern nicht enthalten oder wird gerade analysiert.");
-                    }
-                } else if (text.includes("alle") || text.includes("liste")) {
-                    let html = "<b>Tagesaktuelle Halal KI-Topempfehlungen:</b>";
-                    LIVE_STOCKS.forEach(s => html += renderCard(s));
-                    appendBotMsg(html);
-                } else {
-                    let html = "Hier sind die aktuellen Top-Ergebnisse des heutigen Scans:";
-                    LIVE_STOCKS.slice(0, 2).forEach(s => html += renderCard(s));
-                    appendBotMsg(html);
-                }
-            }, 300);
+            container.innerHTML = stocks.map(s => renderCard(s)).join('');
         }
 
         function renderCard(s) {
+            const price = s.price !== undefined ? s.price : 'k. A.';
+            const target = s.target && s.target > 0 ? s.target + ' €' : 'k. A.';
+            const growth = s.growth !== undefined ? s.growth : 0;
+            const debt = s.debt_ratio !== undefined ? s.debt_ratio : (s.debtRatio || 'k. A.');
+            const sector = s.sector || 'Technologie / Sonstige';
+            
+            const trSearchUrl = `https://www.google.com/search?q=Trade+Republic+${encodeURIComponent(s.ticker)}+${encodeURIComponent(s.name)}`;
+
             return `
-                <div class="bg-slate-950 border border-slate-800 p-3 rounded-xl text-xs space-y-2 my-2">
-                    <div class="flex justify-between items-center border-b border-slate-800 pb-1.5">
-                        <span class="font-bold text-white">${s.name} <span class="text-slate-500 font-normal">(${s.ticker})</span></span>
-                        <span class="bg-emerald-500/20 text-emerald-400 font-bold px-2 py-0.5 rounded">${s.growth1Y}</span>
+                <div class="card">
+                    <div class="card-header">
+                        <span class="stock-title">${s.name} <span class="stock-ticker">(${s.ticker})</span></span>
+                        <span class="badge-growth">+${growth}% Wachstum</span>
                     </div>
-                    <div class="grid grid-cols-3 gap-2 text-slate-400">
-                        <div>Sektor: <b class="text-slate-200 block">${s.sector}</b></div>
-                        <div>Kurs: <b class="text-slate-200 block">$${s.price}</b></div>
-                        <div>Ziel (1J): <b class="text-emerald-400 block">$${s.target1Y}</b></div>
+                    
+                    <div class="card-details">
+                        💰 Preis: <b>${price} €</b> | 🎯 Zielpreis: <b>${target}</b><br>
+                        📊 Schuldenquote: <b>${debt}%</b> (Sharia-Konform ✅)<br>
+                        🏢 Sektor: <i>${sector}</i>
                     </div>
-                    <div class="flex justify-between items-center border-t border-slate-800 pt-1.5">
-                        <span class="text-slate-400">Schuldenquote: <b class="text-emerald-400">${s.debtRatio}</b></span>
-                        <button onclick="document.getElementById('user-input').value='Kioxia'; sendMessage();" class="bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 px-2.5 py-1 rounded font-bold hover:bg-emerald-500/30">
-                            📂 Öffnen
-                        </button>
-                    </div>
+
+                    <a href="${trSearchUrl}" target="_blank" class="btn-tr">
+                        📈 Bei Trade Republic suchen ↗
+                    </a>
                 </div>
             `;
         }
