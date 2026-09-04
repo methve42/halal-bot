@@ -1,0 +1,22 @@
+name: Daily Market Scan
+on:
+  schedule:
+    - cron: '0 7 * * *'
+  workflow_dispatch:
+
+jobs:
+  run-scanner:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - run: pip install yfinance
+      - run: python scanner.py
+      - run: |
+          git config --global user.name "HalalBot-Scanner"
+          git config --global user.email "bot@halalinvest.ai"
+          git add data.json
+          git commit -m "Auto-Update Marktdaten" || exit 0
+          git push
