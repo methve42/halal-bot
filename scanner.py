@@ -11,7 +11,8 @@ HEADERS = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/
 try:
     eur_usd = yf.Ticker("EURUSD=X")
     usd_to_eur_rate = eur_usd.info.get("regularMarketPrice") or eur_usd.info.get("previousClose") or 1.08
-except Exception:
+except Exception as e:
+    print("Wechselkurs-Fehler, nutze Fallback 1.08:", e)
     usd_to_eur_rate = 1.08
 
 print(f"Wechselkurs: 1 EUR = {usd_to_eur_rate} USD")
@@ -26,11 +27,30 @@ FORBIDDEN_INDUSTRIES = [
     "Gambling", "Casinos & Gambling", "Aerospace & Defense"
 ]
 
-# 3. Aktienticker sammeln
-tickers = set()
+# 3. Erweitertes Universum (S&P 500 High-Growth, NASDAQ, Mid-Caps, Bio/CleanTech & EU)
+BASE_TICKERS = [
+    # US Tech & Software
+    "AAPL", "MSFT", "NVDA", "AMZN", "GOOGL", "META", "TSLA", "AMD", "PLTR", "NET", 
+    "CRWD", "COIN", "MSTR", "ARM", "SMCI", "SNOW", "DDOG", "ZS", "PANW", "SHOP", 
+    "SQ", "MELI", "SE", "AVGO", "ORCL", "ADBE", "CRM", "INTC", "QCOM", "TXN",
+    "NOW", "WDAY", "TEAM", "MDB", "OKTA", "ZM", "DOCU", "TWLO", "ROKU", "SPOT",
+    "UBER", "ABNB", "PYPL", "AFRM", "HOOD", "UPST", "PATH", "IOT", "APP", "PINS",
+    "SNPS", "CDNS", "MRVL", "FTNT", "ESTC", "GTLB", "S", "CFR", "ALTR", "SYM",
+    # High Upside / Turnaround / Bio & Clean Tech
+    "CRSP", "EDIT", "NTLA", "BEAM", "RXRX", "PACB", "DNA", "ILMN", "EXAS",
+    "ENPH", "SEDG", "FSLR", "RUN", "PLUG", "CHPT", "BLDP", "STEM",
+    "RIVN", "LCID", "PSNY", "JOBY", "ACHR", "QS", "ENVX",
+    "U", "RBLX", "TTD", "DUOL", "AI", "SOFI", "NU",
+    # Europa / DAX / MDAX / Tech
+    "ASML.AS", "SAP.DE", "IFX.DE", "DTG.DE", "AIXA.DE", "NVD.DE", "VAR1.DE",
+    "DELY.DE", "HFG.DE", "ZAL.DE", "PUM.DE", "EVT.DE", "B3A.DE", "MBG.DE", "BMW.DE"
+]
 
+tickers = set(BASE_TICKERS)
+
+# NASDAQ 100 zusätzlich integrieren
 try:
-    res = requests.get("https://en.wikipedia.org/wiki/Nasdaq-100", headers=HEADERS)
+    res = requests.get("https://en.wikipedia.org/wiki/Nasdaq-100", headers=HEADERS, timeout=10)
     tables = pd.read_html(io.StringIO(res.text))
     for table in tables:
         if 'Ticker' in table.columns:
@@ -38,26 +58,18 @@ try:
         elif 'Symbol' in table.columns:
             tickers.update([t.replace('.', '-') for t in table['Symbol'].tolist()])
 except Exception as e:
-    print("NASDAQ-Abruf fehlgeschlagen:", e)
-
-extra_tickers = [
-    "AAPL", "MSFT", "NVDA", "AMZN", "GOOGL", "TSLA", "AMD", "PLTR", "NET", "CRWD", 
-    "COIN", "MSTR", "ARM", "SMCI", "SNOW", "DDOG", "ZS", "PANW", "SHOP", "SQ", 
-    "MELI", "SE", "ASML.AS", "SAP.DE"
-]
-tickers.update(extra_tickers)
+    print("Wikipedia NASDAQ Abruf übersprungen:", e)
 
 TICKERS_LIST = sorted(list(tickers))
-print(f"Starte Analyse von {len(TICKERS_LIST)} Titeln (Fokus: Analysten-Kurspotenzial)...")
+print(f"Starte Analyse von {len(TICKERS_LIST)} Titeln auf >50% Analysten-Kurspotenzial...")
 
 results = []
-
-# MINDEST-KURSPOTENZIAL DER ANALYSTEN (0.15 = mindestens +15% erwarteter Anstieg)
+# SCHWELLE: 0.50 = Mindestens +50% Analysten-Zielpreis im Vergleich zum aktuellen Kurs
 MIN_UPSIDE_THRESHOLD = 0.50
 
-for symbol in TICKERS_LIST:
+for idx, symbol in enumerate(TICKERS_LIST):
     try:
-        time.sleep(0.15)  # Schutz gegen Rate-Limiting
+        time.sleep(0.2)  # Schutz gegen Rate-Limiting bei Yahoo
         ticker = yf.Ticker(symbol)
         info = ticker.info
 
@@ -86,14 +98,12 @@ for symbol in TICKERS_LIST:
         raw_price = info.get("currentPrice") or info.get("regularMarketPrice", 0)
         raw_target = info.get("targetMeanPrice", 0)
 
-        # Nur Aktien auswerten, für die echte Zielpreise vorliegen
         if raw_price <= 0 or raw_target <= 0:
             continue
 
-        # Kurspotenzial = (Zielpreis - Kurs) / Kurs
         upside = (raw_target - raw_price) / raw_price
 
-        # Währung in Euro umrechnen
+        # Währung umrechnen
         currency = info.get("currency", "USD").upper()
         if currency == "USD":
             price_eur = raw_price / usd_to_eur_rate
@@ -102,7 +112,6 @@ for symbol in TICKERS_LIST:
             price_eur = raw_price
             target_eur = raw_target
 
-        # Nur Werte aufnehmen, die das Mindest-Kurspotenzial erreichen
         if upside >= MIN_UPSIDE_THRESHOLD:
             results.append({
                 "ticker": symbol,
@@ -110,18 +119,20 @@ for symbol in TICKERS_LIST:
                 "sector": sector,
                 "price": round(price_eur, 2),
                 "target": round(target_eur, 2),
-                "growth": round(upside * 100, 1),  # Reines Analysten-Kurspotenzial in %
+                "growth": round(upside * 100, 1),
                 "debt_ratio": round(debt_ratio * 100, 1),
                 "currency": "€"
             })
+            print(f"✅ Treffer (>50%): {symbol} (+{round(upside*100, 1)}%)")
+
     except Exception:
         continue
 
-# Sortierung: Höchstes Kurspotenzial oben
+# Sortierung nach höchstem Kurspotenzial
 results = sorted(results, key=lambda x: x["growth"], reverse=True)
 
-# Speichern
+# Speichern in data.json
 with open("data.json", "w") as f:
     json.dump(results, f, indent=2)
 
-print(f"Scan abgeschlossen! {len(results)} Sharia-konforme Aktien mit Kurspotenzial gespeichert.")
+print(f"Scan abgeschlossen! {len(results)} Sharia-konforme Aktien mit >50% Potential gespeichert.")
