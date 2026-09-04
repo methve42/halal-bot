@@ -1,5 +1,75 @@
 [
   {
+    "ticker": "RXRX",
+    "name": "Recursion Pharmaceuticals, Inc.",
+    "sector": "Healthcare",
+    "price": 3.12,
+    "target": 6.21,
+    "growth": 98.8,
+    "debt_ratio": 3.4,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "NTLA",
+    "name": "Intellia Therapeutics, Inc.",
+    "sector": "Healthcare",
+    "price": 10.96,
+    "target": 20.6,
+    "growth": 87.9,
+    "debt_ratio": 4.1,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "EDIT",
+    "name": "Editas Medicine, Inc.",
+    "sector": "Healthcare",
+    "price": 2.78,
+    "target": 5.16,
+    "growth": 85.8,
+    "debt_ratio": 3.1,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "BEAM",
+    "name": "Beam Therapeutics Inc.",
+    "sector": "Healthcare",
+    "price": 25.52,
+    "target": 44.88,
+    "growth": 75.8,
+    "debt_ratio": 8.1,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "BLDP",
+    "name": "Ballard Power Systems, Inc.",
+    "sector": "Industrials",
+    "price": 2.01,
+    "target": 3.53,
+    "growth": 75.4,
+    "debt_ratio": 2.8,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "APP",
+    "name": "Applovin Corporation",
+    "sector": "Communication Services",
+    "price": 275.84,
+    "target": 442.71,
+    "growth": 60.5,
+    "debt_ratio": 3.3,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "JOBY",
+    "name": "Joby Aviation, Inc.",
+    "sector": "Industrials",
+    "price": 5.8,
+    "target": 9.19,
+    "growth": 58.4,
+    "debt_ratio": 11.2,
+    "currency": "\u20ac"
+  },
+  {
     "ticker": "MSTR",
     "name": "Strategy Inc",
     "sector": "Technology",
@@ -7,6 +77,26 @@
     "target": 194.42,
     "growth": 58.2,
     "debt_ratio": 11.9,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "CRSP",
+    "name": "CRISPR Therapeutics AG",
+    "sector": "Healthcare",
+    "price": 48.01,
+    "target": 75.34,
+    "growth": 56.9,
+    "debt_ratio": 14.5,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "IFX.DE",
+    "name": "INFINEON TECHNOLOGIES AG      N",
+    "sector": "Technology",
+    "price": 56.86,
+    "target": 87.32,
+    "growth": 53.6,
+    "debt_ratio": 9.8,
     "currency": "\u20ac"
   }
 ]
