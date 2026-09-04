@@ -1,6 +1,11 @@
 import json
 import yfinance as yf
 import pandas as pd
+import requests
+import io
+
+# Browser-Header setzen, damit Wikipedia den Zugriff erlaubt
+HEADERS = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
 
 # 1. Aktuellen Wechselkurs EUR/USD abrufen
 try:
@@ -11,12 +16,8 @@ except Exception:
 
 print(f"Aktueller Wechselkurs: 1 EUR = {usd_to_eur_rate} USD")
 
-# 2. Haram-Branchen & Industrien definieren (Qualitatives Sharia-Screening)
-FORBIDDEN_SECTORS = [
-    "Financial Services", 
-    "Financial"
-]
-
+# 2. Haram-Branchen & Industrien (Qualitatives Sharia-Screening)
+FORBIDDEN_SECTORS = ["Financial Services", "Financial"]
 FORBIDDEN_INDUSTRIES = [
     "Banks—Diversified", "Banks—Regional", "Insurance—Financial", "Insurance Brokers",
     "Insurance—Diversified", "Insurance—Life", "Insurance—Property & Casualty",
@@ -25,19 +26,21 @@ FORBIDDEN_INDUSTRIES = [
     "Gambling", "Casinos & Gambling", "Aerospace & Defense"
 ]
 
-# 3. Ticker-Liste aus großen Indizes zusammenstellen
+# 3. Ticker-Listen über Wikipedia abrufen
 tickers = set()
 
 # S&P 500
 try:
-    tables = pd.read_html("https://en.wikipedia.org/wiki/List_of_S%26P_500_companies")
+    res = requests.get("https://en.wikipedia.org/wiki/List_of_S%26P_500_companies", headers=HEADERS)
+    tables = pd.read_html(io.StringIO(res.text))
     tickers.update([t.replace('.', '-') for t in tables[0]['Symbol'].tolist()])
 except Exception as e:
     print("S&P 500 Fehler:", e)
 
 # NASDAQ 100
 try:
-    tables = pd.read_html("https://en.wikipedia.org/wiki/Nasdaq-100")
+    res = requests.get("https://en.wikipedia.org/wiki/Nasdaq-100", headers=HEADERS)
+    tables = pd.read_html(io.StringIO(res.text))
     for table in tables:
         if 'Ticker' in table.columns:
             tickers.update([t.replace('.', '-') for t in table['Ticker'].tolist()])
@@ -48,7 +51,8 @@ except Exception as e:
 
 # DAX 40
 try:
-    tables = pd.read_html("https://en.wikipedia.org/wiki/DAX")
+    res = requests.get("https://en.wikipedia.org/wiki/DAX", headers=HEADERS)
+    tables = pd.read_html(io.StringIO(res.text))
     for table in tables:
         if 'Ticker' in table.columns:
             tickers.update([f"{t.strip()}.DE" for t in table['Ticker'].tolist()])
@@ -57,8 +61,12 @@ try:
 except Exception as e:
     print("DAX Fehler:", e)
 
+# Fallback-Liste, falls Wikipedia fehlschlägt
+if not tickers:
+    tickers = {"AAPL", "MSFT", "NVDA", "AMZN", "GOOGL", "TSLA", "AMD", "PLTR", "NET", "CRWD", "SAP.DE", "ASML.AS"}
+
 TICKERS_LIST = sorted(list(tickers))
-print(f"Scanne {len(TICKERS_LIST)} Aktien auf Sharia-Konformität und 100%+ Wachstum...")
+print(f"{len(TICKERS_LIST)} Aktien geladen. Starte Analyse...")
 
 results = []
 
@@ -67,22 +75,22 @@ for symbol in TICKERS_LIST:
         ticker = yf.Ticker(symbol)
         info = ticker.info
 
-        # --- SHARIA-FILTER 1: BRANCHEN-PRÜFUNG (BUSINESS ACTIVITY) ---
+        # --- SHARIA-FILTER 1: BRANCHEN-PRÜFUNG ---
         sector = info.get("sector", "") or ""
         industry = info.get("industry", "") or ""
 
         if any(fs.lower() in sector.lower() for fs in FORBIDDEN_SECTORS):
-            continue  # Bank / Finanzdienstleister -> sofort überspringen
+            continue
             
         if any(fi.lower() in industry.lower() for fi in FORBIDDEN_INDUSTRIES):
-            continue  # Haram Industrie (Alkohol, Tabak, Glücksspiel, Rüstung) -> überspringen
+            continue
 
-        # --- SHARIA-FILTER 2: SCHULDENQUOTE (FINANCIAL RATIO) ---
+        # --- SHARIA-FILTER 2: SCHULDENQUOTE (< 30%) ---
         market_cap = info.get("marketCap", 0)
         total_debt = info.get("totalDebt", 0)
         debt_ratio = (total_debt / market_cap) if market_cap > 0 else 1.0
 
-        if debt_ratio >= 0.30:  # Verzinstes Fremdkapital / Marktkapitalisierung muss < 30% sein
+        if debt_ratio >= 0.30:
             continue
 
         # --- WACHSTUMS- & POTENZIAL-PRÜFUNG ---
@@ -113,7 +121,7 @@ for symbol in TICKERS_LIST:
         if raw_price > 0 and raw_target > 0:
             upside = (raw_target - raw_price) / raw_price
 
-        # Maximales Wachstum (Gewinn-, Umsatzwachstum oder Analysten-Ziel)
+        # Maximales Wachstum
         max_growth = max(earnings_growth, revenue_growth, upside)
 
         # FILTER: Nur Aktien mit MEHR ALS 100% Wachstum (> 1.0)
@@ -135,4 +143,4 @@ for symbol in TICKERS_LIST:
 with open("data.json", "w") as f:
     json.dump(results, f, indent=2)
 
-print(f"Scan fertig! {len(results)} zu 100% Halal-konforme Aktien mit >100% Wachstum gefunden.")
+print(f"Scan fertig! {len(results)} Halal-Aktien mit >100% Wachstum gefunden.")
