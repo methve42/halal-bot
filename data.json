@@ -24,7 +24,7 @@
     "name": "Beam Therapeutics Inc.",
     "sector": "Healthcare",
     "price": 20.68,
-    "target": 44.95,
+    "target": 44.96,
     "growth": 117.4,
     "debt_ratio": 10.0,
     "currency": "\u20ac"
@@ -43,7 +43,7 @@
     "ticker": "BLDP",
     "name": "Ballard Power Systems, Inc.",
     "sector": "Industrials",
-    "price": 1.9,
+    "price": 1.91,
     "target": 3.47,
     "growth": 82.0,
     "debt_ratio": 3.0,
@@ -53,8 +53,8 @@
     "ticker": "MSTR",
     "name": "Strategy Inc",
     "sector": "Technology",
-    "price": 112.88,
-    "target": 194.96,
+    "price": 112.9,
+    "target": 194.98,
     "growth": 72.7,
     "debt_ratio": 13.0,
     "currency": "\u20ac"
@@ -64,7 +64,7 @@
     "name": "CRISPR Therapeutics AG",
     "sector": "Healthcare",
     "price": 44.58,
-    "target": 75.46,
+    "target": 75.47,
     "growth": 69.3,
     "debt_ratio": 15.7,
     "currency": "\u20ac"
@@ -93,8 +93,8 @@
     "ticker": "APP",
     "name": "Applovin Corporation",
     "sector": "Communication Services",
-    "price": 279.22,
-    "target": 438.18,
+    "price": 279.25,
+    "target": 438.23,
     "growth": 56.9,
     "debt_ratio": 3.2,
     "currency": "\u20ac"
@@ -106,15 +106,15 @@
     "price": 16.42,
     "target": 24.99,
     "growth": 52.2,
-    "debt_ratio": 11.2,
+    "debt_ratio": 11.1,
     "currency": "\u20ac"
   },
   {
     "ticker": "SYM",
     "name": "Symbotic Inc.",
     "sector": "Industrials",
-    "price": 36.31,
-    "target": 55.09,
+    "price": 36.32,
+    "target": 55.1,
     "growth": 51.7,
     "debt_ratio": 0.1,
     "currency": "\u20ac"
