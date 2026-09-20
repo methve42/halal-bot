@@ -13,7 +13,7 @@
     "ticker": "BEAM",
     "name": "Beam Therapeutics Inc.",
     "sector": "Healthcare",
-    "price": 21.72,
+    "price": 21.71,
     "target": 45.39,
     "growth": 109.0,
     "debt_ratio": 9.6,
@@ -73,8 +73,8 @@
     "ticker": "APP",
     "name": "Applovin Corporation",
     "sector": "Communication Services",
-    "price": 268.14,
-    "target": 436.88,
+    "price": 268.1,
+    "target": 436.83,
     "growth": 62.9,
     "debt_ratio": 3.4,
     "currency": "\u20ac"
@@ -84,9 +84,9 @@
     "name": "Pinterest, Inc.",
     "sector": "Communication Services",
     "price": 16.19,
-    "target": 25.29,
+    "target": 25.28,
     "growth": 56.2,
-    "debt_ratio": 11.5,
+    "debt_ratio": 11.4,
     "currency": "\u20ac"
   },
   {
@@ -103,8 +103,8 @@
     "ticker": "CRSP",
     "name": "CRISPR Therapeutics AG",
     "sector": "Healthcare",
-    "price": 49.23,
-    "target": 76.21,
+    "price": 49.22,
+    "target": 76.2,
     "growth": 54.8,
     "debt_ratio": 14.3,
     "currency": "\u20ac"
@@ -113,8 +113,8 @@
     "ticker": "SE",
     "name": "Sea Limited",
     "sector": "Consumer Cyclical",
-    "price": 88.6,
-    "target": 136.75,
+    "price": 88.59,
+    "target": 136.73,
     "growth": 54.3,
     "debt_ratio": 6.6,
     "currency": "\u20ac"
@@ -134,7 +134,7 @@
     "name": "Symbotic Inc.",
     "sector": "Industrials",
     "price": 36.46,
-    "target": 54.71,
+    "target": 54.7,
     "growth": 50.1,
     "debt_ratio": 0.1,
     "currency": "\u20ac"
