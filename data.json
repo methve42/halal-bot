@@ -50,6 +50,16 @@
     "currency": "\u20ac"
   },
   {
+    "ticker": "BLDP",
+    "name": "Ballard Power Systems, Inc.",
+    "sector": "Industrials",
+    "price": 1.82,
+    "target": 3.24,
+    "growth": 78.2,
+    "debt_ratio": 2.7,
+    "currency": "\u20ac"
+  },
+  {
     "ticker": "RXRX",
     "name": "Recursion Pharmaceuticals, Inc.",
     "sector": "Healthcare",
@@ -57,16 +67,6 @@
     "target": 6.41,
     "growth": 75.2,
     "debt_ratio": 3.0,
-    "currency": "\u20ac"
-  },
-  {
-    "ticker": "BLDP",
-    "name": "Ballard Power Systems, Inc.",
-    "sector": "Industrials",
-    "price": 1.82,
-    "target": 3.19,
-    "growth": 75.0,
-    "debt_ratio": 2.7,
     "currency": "\u20ac"
   },
   {
@@ -114,8 +114,8 @@
     "name": "Enphase Energy, Inc.",
     "sector": "Technology",
     "price": 29.73,
-    "target": 45.84,
-    "growth": 54.2,
+    "target": 45.96,
+    "growth": 54.6,
     "debt_ratio": 13.9,
     "currency": "\u20ac"
   },
