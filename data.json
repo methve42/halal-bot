@@ -4,8 +4,8 @@
     "name": "Editas Medicine, Inc.",
     "sector": "Healthcare",
     "price": 2.59,
-    "target": 5.27,
-    "growth": 103.4,
+    "target": 5.44,
+    "growth": 110.3,
     "debt_ratio": 3.5,
     "currency": "\u20ac"
   },
@@ -24,8 +24,8 @@
     "name": "Joby Aviation, Inc.",
     "sector": "Industrials",
     "price": 4.85,
-    "target": 9.53,
-    "growth": 96.2,
+    "target": 9.33,
+    "growth": 92.2,
     "debt_ratio": 13.8,
     "currency": "\u20ac"
   },
@@ -40,16 +40,6 @@
     "currency": "\u20ac"
   },
   {
-    "ticker": "APP",
-    "name": "Applovin Corporation",
-    "sector": "Communication Services",
-    "price": 247.23,
-    "target": 442.38,
-    "growth": 78.9,
-    "debt_ratio": 3.8,
-    "currency": "\u20ac"
-  },
-  {
     "ticker": "NTLA",
     "name": "Intellia Therapeutics, Inc.",
     "sector": "Healthcare",
@@ -57,6 +47,16 @@
     "target": 20.62,
     "growth": 76.8,
     "debt_ratio": 4.0,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "APP",
+    "name": "Applovin Corporation",
+    "sector": "Communication Services",
+    "price": 247.23,
+    "target": 435.19,
+    "growth": 76.0,
+    "debt_ratio": 3.8,
     "currency": "\u20ac"
   },
   {
@@ -74,8 +74,8 @@
     "name": "CRISPR Therapeutics AG",
     "sector": "Healthcare",
     "price": 47.65,
-    "target": 78.13,
-    "growth": 64.0,
+    "target": 78.08,
+    "growth": 63.9,
     "debt_ratio": 15.2,
     "currency": "\u20ac"
   },
@@ -94,9 +94,9 @@
     "name": "Enphase Energy, Inc.",
     "sector": "Technology",
     "price": 29.28,
-    "target": 45.83,
-    "growth": 56.5,
-    "debt_ratio": 14.2,
+    "target": 45.63,
+    "growth": 55.8,
+    "debt_ratio": 14.1,
     "currency": "\u20ac"
   },
   {
@@ -114,8 +114,8 @@
     "name": "Strategy Inc",
     "sector": "Technology",
     "price": 137.73,
-    "target": 211.32,
-    "growth": 53.4,
+    "target": 212.21,
+    "growth": 54.1,
     "debt_ratio": 11.0,
     "currency": "\u20ac"
   }
