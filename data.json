@@ -44,8 +44,8 @@
     "name": "Applovin Corporation",
     "sector": "Communication Services",
     "price": 204.64,
-    "target": 405.66,
-    "growth": 98.2,
+    "target": 401.62,
+    "growth": 96.3,
     "debt_ratio": 4.6,
     "currency": "\u20ac"
   },
@@ -127,16 +127,6 @@
     "target": 55.55,
     "growth": 63.5,
     "debt_ratio": 0.1,
-    "currency": "\u20ac"
-  },
-  {
-    "ticker": "INTC",
-    "name": "Intel Corporation",
-    "sector": "Technology",
-    "price": 58.89,
-    "target": 96.02,
-    "growth": 63.0,
-    "debt_ratio": 14.3,
     "currency": "\u20ac"
   },
   {
