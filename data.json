@@ -44,8 +44,8 @@
     "name": "Intellia Therapeutics, Inc.",
     "sector": "Healthcare",
     "price": 10.19,
-    "target": 20.49,
-    "growth": 101.2,
+    "target": 20.39,
+    "growth": 100.2,
     "debt_ratio": 4.6,
     "currency": "\u20ac"
   },
@@ -60,16 +60,6 @@
     "currency": "\u20ac"
   },
   {
-    "ticker": "BEAM",
-    "name": "Beam Therapeutics Inc.",
-    "sector": "Healthcare",
-    "price": 23.7,
-    "target": 44.8,
-    "growth": 89.0,
-    "debt_ratio": 8.9,
-    "currency": "\u20ac"
-  },
-  {
     "ticker": "IFX.DE",
     "name": "INFINEON TECHNOLOGIES AG      N",
     "sector": "Technology",
@@ -80,13 +70,13 @@
     "currency": "\u20ac"
   },
   {
-    "ticker": "MSTR",
-    "name": "Strategy Inc",
-    "sector": "Technology",
-    "price": 115.7,
-    "target": 209.33,
-    "growth": 80.9,
-    "debt_ratio": 12.4,
+    "ticker": "BEAM",
+    "name": "Beam Therapeutics Inc.",
+    "sector": "Healthcare",
+    "price": 23.7,
+    "target": 44.52,
+    "growth": 87.9,
+    "debt_ratio": 8.9,
     "currency": "\u20ac"
   },
   {
@@ -94,9 +84,19 @@
     "name": "Broadcom Inc.",
     "sector": "Technology",
     "price": 263.56,
-    "target": 472.76,
-    "growth": 79.4,
+    "target": 478.69,
+    "growth": 81.6,
     "debt_ratio": 4.2,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "MSTR",
+    "name": "Strategy Inc",
+    "sector": "Technology",
+    "price": 115.7,
+    "target": 209.33,
+    "growth": 80.9,
+    "debt_ratio": 12.4,
     "currency": "\u20ac"
   },
   {
