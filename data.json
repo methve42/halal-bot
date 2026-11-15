@@ -84,8 +84,8 @@
     "name": "Sea Limited",
     "sector": "Consumer Cyclical",
     "price": 68.34,
-    "target": 121.96,
-    "growth": 78.5,
+    "target": 119.83,
+    "growth": 75.3,
     "debt_ratio": 7.3,
     "currency": "\u20ac"
   },
@@ -100,16 +100,6 @@
     "currency": "\u20ac"
   },
   {
-    "ticker": "NVDA",
-    "name": "NVIDIA Corporation",
-    "sector": "Technology",
-    "price": 147.67,
-    "target": 256.9,
-    "growth": 74.0,
-    "debt_ratio": 1.0,
-    "currency": "\u20ac"
-  },
-  {
     "ticker": "SYM",
     "name": "Symbotic Inc.",
     "sector": "Industrials",
@@ -117,6 +107,16 @@
     "target": 54.26,
     "growth": 71.8,
     "debt_ratio": 0.1,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "NVDA",
+    "name": "NVIDIA Corporation",
+    "sector": "Technology",
+    "price": 147.67,
+    "target": 250.79,
+    "growth": 69.8,
+    "debt_ratio": 1.0,
     "currency": "\u20ac"
   },
   {
@@ -144,8 +144,8 @@
     "name": "Enphase Energy, Inc.",
     "sector": "Technology",
     "price": 23.64,
-    "target": 36.5,
-    "growth": 54.4,
+    "target": 36.14,
+    "growth": 52.9,
     "debt_ratio": 17.8,
     "currency": "\u20ac"
   },
