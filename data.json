@@ -1,1 +1,342 @@
-[]
+[
+  {
+    "ticker": "EDIT",
+    "name": "Editas Medicine, Inc.",
+    "sector": "Healthcare",
+    "price": 1.49,
+    "target": 5.56,
+    "growth": 272.0,
+    "debt_ratio": 5.5,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "MSTR",
+    "name": "Strategy Inc",
+    "sector": "Technology",
+    "price": 70.89,
+    "target": 212.55,
+    "growth": 199.8,
+    "debt_ratio": 20.6,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "RXRX",
+    "name": "Recursion Pharmaceuticals, Inc.",
+    "sector": "Healthcare",
+    "price": 2.23,
+    "target": 6.17,
+    "growth": 176.2,
+    "debt_ratio": 4.9,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "BLDP",
+    "name": "Ballard Power Systems, Inc.",
+    "sector": "Industrials",
+    "price": 0.97,
+    "target": 2.47,
+    "growth": 153.7,
+    "debt_ratio": 25.3,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "MRVL",
+    "name": "Marvell Technology, Inc.",
+    "sector": "Technology",
+    "price": 111.42,
+    "target": 281.69,
+    "growth": 152.8,
+    "debt_ratio": 4.8,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "JOBY",
+    "name": "Joby Aviation, Inc.",
+    "sector": "Industrials",
+    "price": 3.28,
+    "target": 8.06,
+    "growth": 145.6,
+    "debt_ratio": 20.5,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "BEAM",
+    "name": "Beam Therapeutics Inc.",
+    "sector": "Healthcare",
+    "price": 19.04,
+    "target": 45.42,
+    "growth": 138.5,
+    "debt_ratio": 11.3,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "NTLA",
+    "name": "Intellia Therapeutics, Inc.",
+    "sector": "Healthcare",
+    "price": 9.11,
+    "target": 20.76,
+    "growth": 127.8,
+    "debt_ratio": 16.4,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "CRSP",
+    "name": "CRISPR Therapeutics AG",
+    "sector": "Healthcare",
+    "price": 35.63,
+    "target": 77.84,
+    "growth": 118.5,
+    "debt_ratio": 20.6,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "SE",
+    "name": "Sea Limited",
+    "sector": "Consumer Cyclical",
+    "price": 57.07,
+    "target": 118.46,
+    "growth": 107.6,
+    "debt_ratio": 8.7,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "ENPH",
+    "name": "Enphase Energy, Inc.",
+    "sector": "Technology",
+    "price": 17.89,
+    "target": 35.92,
+    "growth": 100.8,
+    "debt_ratio": 23.7,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "NVDA",
+    "name": "NVIDIA Corporation",
+    "sector": "Technology",
+    "price": 114.38,
+    "target": 222.5,
+    "growth": 94.5,
+    "debt_ratio": 1.3,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "QS",
+    "name": "QuantumScape Corporation",
+    "sector": "Consumer Cyclical",
+    "price": 2.54,
+    "target": 4.93,
+    "growth": 94.0,
+    "debt_ratio": 3.7,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "SYM",
+    "name": "Symbotic Inc.",
+    "sector": "Industrials",
+    "price": 28.34,
+    "target": 54.53,
+    "growth": 92.4,
+    "debt_ratio": 0.1,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "FSLR",
+    "name": "First Solar, Inc.",
+    "sector": "Technology",
+    "price": 125.37,
+    "target": 228.41,
+    "growth": 82.2,
+    "debt_ratio": 2.2,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "ASML.AS",
+    "name": "ASML HOLDING",
+    "sector": "Technology",
+    "price": 1168.0,
+    "target": 2095.94,
+    "growth": 79.4,
+    "debt_ratio": 0.4,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "ARM",
+    "name": "Arm Holdings plc",
+    "sector": "Technology",
+    "price": 138.68,
+    "target": 248.24,
+    "growth": 79.0,
+    "debt_ratio": 0.3,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "IFX.DE",
+    "name": "INFINEON TECHNOLOGIES AG      N",
+    "sector": "Technology",
+    "price": 45.44,
+    "target": 80.79,
+    "growth": 77.8,
+    "debt_ratio": 12.4,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "NOW",
+    "name": "ServiceNow, Inc.",
+    "sector": "Technology",
+    "price": 79.83,
+    "target": 141.92,
+    "growth": 77.8,
+    "debt_ratio": 9.3,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "INTC",
+    "name": "Intel Corporation",
+    "sector": "Technology",
+    "price": 46.73,
+    "target": 82.6,
+    "growth": 76.8,
+    "debt_ratio": 18.4,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "AVGO",
+    "name": "Broadcom Inc.",
+    "sector": "Technology",
+    "price": 277.38,
+    "target": 479.72,
+    "growth": 72.9,
+    "debt_ratio": 4.1,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "DDOG",
+    "name": "Datadog, Inc.",
+    "sector": "Technology",
+    "price": 143.4,
+    "target": 245.71,
+    "growth": 71.4,
+    "debt_ratio": 2.3,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "SNOW",
+    "name": "Snowflake Inc.",
+    "sector": "Technology",
+    "price": 232.19,
+    "target": 393.21,
+    "growth": 69.3,
+    "debt_ratio": 3.1,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "TEAM",
+    "name": "Atlassian Corporation",
+    "sector": "Technology",
+    "price": 122.69,
+    "target": 199.07,
+    "growth": 62.3,
+    "debt_ratio": 3.6,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "AIXA.DE",
+    "name": "AIXTRON SE                    N",
+    "sector": "Technology",
+    "price": 29.42,
+    "target": 47.45,
+    "growth": 61.3,
+    "debt_ratio": 10.8,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "MELI",
+    "name": "MercadoLibre, Inc.",
+    "sector": "Consumer Cyclical",
+    "price": 1234.68,
+    "target": 1961.59,
+    "growth": 58.9,
+    "debt_ratio": 23.6,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "CRM",
+    "name": "Salesforce, Inc.",
+    "sector": "Technology",
+    "price": 164.58,
+    "target": 260.73,
+    "growth": 58.4,
+    "debt_ratio": 28.5,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "MDB",
+    "name": "MongoDB, Inc.",
+    "sector": "Technology",
+    "price": 260.51,
+    "target": 411.53,
+    "growth": 58.0,
+    "debt_ratio": 0.2,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "TWLO",
+    "name": "Twilio Inc.",
+    "sector": "Technology",
+    "price": 156.82,
+    "target": 244.54,
+    "growth": 55.9,
+    "debt_ratio": 4.0,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "PLTR",
+    "name": "Palantir Technologies Inc.",
+    "sector": "Technology",
+    "price": 130.75,
+    "target": 203.11,
+    "growth": 55.3,
+    "debt_ratio": 0.1,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "AMD",
+    "name": "Advanced Micro Devices, Inc.",
+    "sector": "Technology",
+    "price": 386.7,
+    "target": 599.34,
+    "growth": 55.0,
+    "debt_ratio": 1.3,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "UBER",
+    "name": "Uber Technologies, Inc.",
+    "sector": "Technology",
+    "price": 57.83,
+    "target": 89.44,
+    "growth": 54.7,
+    "debt_ratio": 13.7,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "PINS",
+    "name": "Pinterest, Inc.",
+    "sector": "Communication Services",
+    "price": 14.88,
+    "target": 22.81,
+    "growth": 53.3,
+    "debt_ratio": 12.8,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "META",
+    "name": "Meta Platforms, Inc.",
+    "sector": "Communication Services",
+    "price": 511.04,
+    "target": 772.9,
+    "growth": 51.2,
+    "debt_ratio": 8.0,
+    "currency": "\u20ac"
+  }
+]
