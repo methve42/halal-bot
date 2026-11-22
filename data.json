@@ -30,16 +30,6 @@
     "currency": "\u20ac"
   },
   {
-    "ticker": "BLDP",
-    "name": "Ballard Power Systems, Inc.",
-    "sector": "Industrials",
-    "price": 0.97,
-    "target": 2.47,
-    "growth": 153.7,
-    "debt_ratio": 25.3,
-    "currency": "\u20ac"
-  },
-  {
     "ticker": "MRVL",
     "name": "Marvell Technology, Inc.",
     "sector": "Technology",
@@ -47,6 +37,16 @@
     "target": 281.69,
     "growth": 152.8,
     "debt_ratio": 4.8,
+    "currency": "\u20ac"
+  },
+  {
+    "ticker": "BLDP",
+    "name": "Ballard Power Systems, Inc.",
+    "sector": "Industrials",
+    "price": 0.97,
+    "target": 2.42,
+    "growth": 148.5,
+    "debt_ratio": 25.3,
     "currency": "\u20ac"
   },
   {
